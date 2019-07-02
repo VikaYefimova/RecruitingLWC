@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_3-of-6">
+            <div style="position: fixed; width: 50%;">
+                <lightning-card title="Search Records">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <lightning-input value={name} onchange={handleNameChange} placeholder='Enter Job Name'></lightning-input>
+                            <p>You enter <b>{name}</b></p>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-input value={salary} onchange={handleSalaryChange} placeholder='Enter Salary'></lightning-input>
+                            <p>You enter <b>{salary}</b></p>
+                        </div>
+                        <div class="slds-col">
+                                <lightning-input value={operator} onchange={handleOperatorChange} placeholder='Enter operator'></lightning-input>
+                                <p>You enter <b>{operator}</b></p>
+                        </div>
+                    </div> 
+                </lightning-card>
+            </div>   
+        </div>
+<!--<div class="slds-col slds-size_3-of-6">
+            <div style="float: left; width: 100%;">
+                <lightning-card title="Job Advertisements">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <lightning-input value={name} onchange={handleNameChange} placeholder='Enter Job Name'></lightning-input>
+                            <p>You enter <b>{name}</b></p>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-input value={salary} onchange={handleSalaryChange} placeholder='Enter Salary'></lightning-input>
+                            <p>You enter <b>{salary}</b></p>
+                        </div>
+                        <div class="slds-col">
+                                <lightning-input value={operator} onchange={handleOperatorChange} placeholder='Enter operator'></lightning-input>
+                                <p>You enter <b>{operator}</b></p>
+                        </div>
+                    </div> 
+                </lightning-card>
+            </div>   
+        </div>-->
+    </div>
+</template>

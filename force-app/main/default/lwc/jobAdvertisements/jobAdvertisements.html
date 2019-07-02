@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-m-left_large">
+            <template if:true={jobs.data}> 
+                <template for:each={jobs.data} for:item="item">
+                    <c-job-advertisement-item key={item.Id} job={item}>
+                    </c-job-advertisement-item>
+                </template> 
+            </template>
+    </div>
+</template>
