@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Recruiting</label>
+    <navType>Standard</navType>
+    <tabs>Job_Advertisement__c</tabs>
+    <tabs>Selected_Job__c</tabs>
+    <tabs>Candidate_CV__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Recruiting_UtilityBar</utilityBar>
+</CustomApplication>

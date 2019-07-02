@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recruiting</fullName>
+    <types>
+        <members>Recruiting</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Candidate_CV__c.Additional_Info__c</members>
+        <members>Candidate_CV__c.Photo_Link__c</members>
+        <members>Job_Advertisement__c.Description__c</members>
+        <members>Job_Advertisement__c.Education__c</members>
+        <members>Job_Advertisement__c.Email__c</members>
+        <members>Job_Advertisement__c.Location__c</members>
+        <members>Job_Advertisement__c.Manager_Name__c</members>
+        <members>Job_Advertisement__c.Phone__c</members>
+        <members>Job_Advertisement__c.Salary__c</members>
+        <members>Job_Advertisement__c.Skills_Required__c</members>
+        <members>Job_Advertisement__c.Status__c</members>
+        <members>Selected_Job__c.Age__c</members>
+        <members>Selected_Job__c.Candidate_CV__c</members>
+        <members>Selected_Job__c.Email__c</members>
+        <members>Selected_Job__c.External_Id__c</members>
+        <members>Selected_Job__c.Job_Advertisement__c</members>
+        <members>Selected_Job__c.Phone__c</members>
+        <members>Selected_Job__c.Salary__c</members>
+        <members>Selected_Job__c.Status__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Candidate_CV__c</members>
+        <members>Job_Advertisement__c</members>
+        <members>Selected_Job__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Candidate_CV__c</members>
+        <members>Job_Advertisement__c</members>
+        <members>Selected_Job__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Recruiting_UtilityBar</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Candidate_CV__c-Candidate CV Layout</members>
+        <members>Job_Advertisement__c-Job Advertisement Layout</members>
+        <members>Selected_Job__c-Selected Job Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Candidate_CV__c.All</members>
+        <members>Job_Advertisement__c.All</members>
+        <members>Selected_Job__c.All</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Recruiting</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>46.0</version>
+</Package>
