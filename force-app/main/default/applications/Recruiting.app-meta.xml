@@ -9,6 +9,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Recruiting</label>
     <navType>Standard</navType>
+    <tabs>Job_Advertisements_App</tabs>
     <tabs>Job_Advertisement__c</tabs>
     <tabs>Selected_Job__c</tabs>
     <tabs>Candidate_CV__c</tabs>

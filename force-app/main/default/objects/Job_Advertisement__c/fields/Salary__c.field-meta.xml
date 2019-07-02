@@ -3,9 +3,32 @@
     <fullName>Salary__c</fullName>
     <externalId>false</externalId>
     <label>Salary</label>
-    <length>25</length>
     <required>false</required>
     <trackTrending>false</trackTrending>
-    <type>Text</type>
-    <unique>false</unique>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>50K - 75K</fullName>
+                <default>false</default>
+                <label>50K - 75K</label>
+            </value>
+            <value>
+                <fullName>75K - 90K</fullName>
+                <default>false</default>
+                <label>75K - 90K</label>
+            </value>
+            <value>
+                <fullName>90K - 120K</fullName>
+                <default>false</default>
+                <label>90K - 120K</label>
+            </value>
+            <value>
+                <fullName>120K+</fullName>
+                <default>false</default>
+                <label>120K+</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
 </CustomField>
