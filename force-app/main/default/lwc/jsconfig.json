@@ -9,11 +9,11 @@
             "c/jobAdvertisements": [
                 "jobAdvertisements/jobAdvertisements.js"
             ],
-            "c/searchRecords": [
-                "searchRecords/searchRecords.js"
-            ],
             "c/pubsub": [
                 "pubsub/pubsub.js"
+            ],
+            "c/searchRecords": [
+                "searchRecords/searchRecords.js"
             ]
         }
     },

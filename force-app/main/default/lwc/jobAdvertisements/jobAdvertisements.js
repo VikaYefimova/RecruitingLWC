@@ -7,15 +7,17 @@ export default class JobAdvertisements extends LightningElement {
     @track jobs;
     @track error;
 
-    @track name;
+    @track name = '';
+    @track salary = '';
 
-    @wire(getJobs) jobs;
+    @wire(getJobs, { name: '$name', salary: '$salary'}) jobs;
 
     @wire(CurrentPageReference) pageRef;
 
-    connectedCallback() {
+    connectedCallback() {console.log('connectedCallback');
         // subscribe to searchKeyChange event
-        registerListener('changeFilter', this.handleSearchKeyChange, this);
+        this.name = '1';
+        registerListener('changeFilter', this.handleSearchKeyChange.bind(this), this);
     }
 
     disconnectedCallback() {
@@ -24,8 +26,9 @@ export default class JobAdvertisements extends LightningElement {
     }
 
     handleSearchKeyChange(searchKey) {
-        this.name = searchKey;
-        console.log('test event handler');
+        this.name = searchKey.get('name') ? searchKey.get('name') : "";
+        this.salary = searchKey.get('salary') ? searchKey.get('salary') : "";
+        console.log('test event handler ' + searchKey.get('salary'));
     }
 
 }

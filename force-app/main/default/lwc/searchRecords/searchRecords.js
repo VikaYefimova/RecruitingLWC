@@ -20,6 +20,7 @@ export default class SearchRecords extends LightningElement {
             label: 'after'
         }
     ];
+    //@track mapTest = new Map();
 
     @wire(CurrentPageReference) pageRef;
 
@@ -32,10 +33,19 @@ export default class SearchRecords extends LightningElement {
 
     handleNameChange(event){
         this.name = event.target.value;
-        fireEvent(this.pageRef, 'changeFilter', this.name);
+        var mapTest = new Map();
+        mapTest.set('name', this.name);
+        mapTest.set('salary', this.salary);
+        console.log(mapTest);
+        fireEvent(this.pageRef, 'changeFilter', mapTest);
     }
     handleSalaryChange(event){
-        this.salary = event.detail.value;
+        this.salary = event.target.value;
+        var mapTestt = new Map();
+        mapTestt.set('name', this.name);
+        mapTestt.set('salary', this.salary);
+        console.log(mapTestt);
+        fireEvent(this.pageRef, 'changeFilter', mapTestt);
     }
     handleOperatorChange(event){
         this.operator = event.detail.value;
@@ -48,5 +58,10 @@ export default class SearchRecords extends LightningElement {
         this.salary = undefined;
         this.operator = {value: undefined, label: undefined};
         this.date = '';
+        var maping = new Map();
+        maping.set('name', this.name);
+        maping.set('salary', '');
+        console.log('hello in reset ' + maping);
+        fireEvent(this.pageRef, 'changeFilter', maping);
     }
 }
