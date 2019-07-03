@@ -3,14 +3,14 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/searchRecords": [
-                "searchRecords/searchRecords.js"
-            ],
             "c/jobAdvertisementItem": [
                 "jobAdvertisementItem/jobAdvertisementItem.js"
             ],
             "c/jobAdvertisements": [
                 "jobAdvertisements/jobAdvertisements.js"
+            ],
+            "c/searchRecords": [
+                "searchRecords/searchRecords.js"
             ]
         }
     },
