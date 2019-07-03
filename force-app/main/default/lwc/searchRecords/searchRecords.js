@@ -1,9 +1,10 @@
 import { LightningElement, track, wire } from 'lwc';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
+import { CurrentPageReference } from 'lightning/navigation';
+import { fireEvent } from 'c/pubsub';
 import JOB_ADVERTISEMENT from '@salesforce/schema/Job_Advertisement__c';
 import SALARY_FIELD from '@salesforce/schema/Job_Advertisement__c.Salary__c';
-import OPERATOR_FIELD from '@salesforce/schema/Job_Advertisement__c.Operator__c';
 
 export default class SearchRecords extends LightningElement {
     @track name;
@@ -20,6 +21,8 @@ export default class SearchRecords extends LightningElement {
         }
     ];
 
+    @wire(CurrentPageReference) pageRef;
+
     @wire (getObjectInfo, {objectApiName: JOB_ADVERTISEMENT})
     objectInfo;
 
@@ -29,6 +32,7 @@ export default class SearchRecords extends LightningElement {
 
     handleNameChange(event){
         this.name = event.target.value;
+        fireEvent(this.pageRef, 'changeFilter', this.name);
     }
     handleSalaryChange(event){
         this.salary = event.detail.value;
@@ -44,6 +48,5 @@ export default class SearchRecords extends LightningElement {
         this.salary = undefined;
         this.operator = {value: undefined, label: undefined};
         this.date = '';
-        console.log('hell ' + operator);
     }
 }
