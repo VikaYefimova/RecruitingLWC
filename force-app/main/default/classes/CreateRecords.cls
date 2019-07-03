@@ -1,5 +1,5 @@
 public with sharing class CreateRecords {
-    public CreateRecords(Integer count, String status) {
+    public static void createTestRecords(Integer count, String status){
         List<Job_advertisement__c> jobs = new List<Job_Advertisement__c>();
         for(Integer i=0; i<count; i++){
             Job_Advertisement__c job = new Job_advertisement__c();
