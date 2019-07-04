@@ -9,14 +9,14 @@ export default class JobAdvertisements extends LightningElement {
 
     @track name = '';
     @track salary = '';
+    @track operator = '';
+    @track date = '';
 
-    @wire(getJobs, { name: '$name', salary: '$salary'}) jobs;
+    @wire(getJobs, { name: '$name', salary: '$salary', operator: '$operator', publishDate: '$date' }) jobs;
 
     @wire(CurrentPageReference) pageRef;
 
     connectedCallback() {console.log('connectedCallback');
-        // subscribe to searchKeyChange event
-        this.name = '1';
         registerListener('changeFilter', this.handleSearchKeyChange.bind(this), this);
     }
 
@@ -28,7 +28,7 @@ export default class JobAdvertisements extends LightningElement {
     handleSearchKeyChange(searchKey) {
         this.name = searchKey.get('name') ? searchKey.get('name') : "";
         this.salary = searchKey.get('salary') ? searchKey.get('salary') : "";
-        console.log('test event handler ' + searchKey.get('salary'));
+        this.operator = searchKey.get('operator') ? searchKey.get('operator'): "";
+        this.date = searchKey.get('date') ? searchKey.get('date'): "";
     }
-
 }

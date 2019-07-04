@@ -33,35 +33,35 @@ export default class SearchRecords extends LightningElement {
 
     handleNameChange(event){
         this.name = event.target.value;
-        var mapTest = new Map();
-        mapTest.set('name', this.name);
-        mapTest.set('salary', this.salary);
-        console.log(mapTest);
-        fireEvent(this.pageRef, 'changeFilter', mapTest);
+        this.fireingFilterEvents(this.name, this.salary, this.operator, this.date);
     }
     handleSalaryChange(event){
         this.salary = event.target.value;
-        var mapTestt = new Map();
-        mapTestt.set('name', this.name);
-        mapTestt.set('salary', this.salary);
-        console.log(mapTestt);
-        fireEvent(this.pageRef, 'changeFilter', mapTestt);
+        this.fireingFilterEvents(this.name, this.salary, this.operator, this.date);
     }
     handleOperatorChange(event){
         this.operator = event.detail.value;
+        this.fireingFilterEvents(this.name, this.salary, this.operator, this.date);
     }
     handleDateChange(event){
         this.date = event.target.value;
+        this.fireingFilterEvents(this.name, this.salary, this.operator, this.date);
     }
     resetFilters(event){
         this.name = '';
         this.salary = undefined;
         this.operator = {value: undefined, label: undefined};
         this.date = '';
-        var maping = new Map();
-        maping.set('name', this.name);
-        maping.set('salary', '');
-        console.log('hello in reset ' + maping);
-        fireEvent(this.pageRef, 'changeFilter', maping);
+        this.fireingFilterEvents(this.name, '', '', '');
+    }
+    fireingFilterEvents( name, salary, operator, date){
+        var filter = new Map();
+        filter.set('name', name);
+        filter.set('salary', salary);
+        filter.set('operator', operator);
+        filter.set('date', date);
+        console.log(this.date);
+        console.log(this.operator);
+        fireEvent(this.pageRef, 'changeFilter', filter);
     }
 }

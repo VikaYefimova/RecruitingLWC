@@ -1,7 +1,31 @@
 <template>
     <lightning-card title={job.Name} style="border: 2px;">
-        <p>{job.Location__c}</p>
-        <p>{job.Education__c}</p>
-        <p>{job.Salary__c}</p>
+        <lightning-button-icon  icon-name="utility:add" variant="border-filled" alternative-text="Reset" slot="actions" onclick={resetFilters}></lightning-button-icon>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_11-of-12">
+                    <p>Salary range: {job.Salary__c}</p>
+                    <p>Location: {job.Location__c}</p>
+                </div>
+                <div class="slds-col slds-size_1-of-12" style="bottom: 10px; left: 10px;">
+                    <lightning-button-icon class="open-detail" icon-name="utility:chevrondown" size="small" alternative-text="Open Detail" onclick={resetFilters}></lightning-button-icon>
+                </div>
+                
+            </div>
+            
+        <div class="test-element" style="display: none; margin-top: 8px;">
+            <p>Education: {job.Education__c}</p>
+            <p>Description: {job.Description__c}</p>
+            <p>Skills required: {job.Skills_Required__c}</p>
+            <p>Manager name: {job.Manager_Name__c}</p>
+            <p>Manager phone: {job.Phone__c}</p>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_10-of-12">
+                    <p>Manager email: {job.Email__c}</p>
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                    <lightning-button label="Select" style="float: right; margin-right: 10px;"></lightning-button>
+                </div>
+            </div>
+        </div>
     </lightning-card>
 </template>
