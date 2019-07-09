@@ -1,7 +1,7 @@
 <template>
     <div class="slds-grid slds-gutters">
-        <div class="slds-col slds-size_3-of-6">
-            <div style="position: fixed; width: 50%;">
+        <div class="slds-col slds-size_6-of-6">
+            <div style="position: fixed; width: 50%; height: 100%;">
                 <lightning-card title="Search Records">
                     <lightning-button-icon  icon-name="utility:brush" variant="border-filled" alternative-text="Reset" slot="actions" onclick={resetFilters}></lightning-button-icon>
                     <div class="slds-grid slds-gutters">
@@ -31,7 +31,13 @@
                         </div>
                     </div> 
                 </lightning-card>
-            </div>   
+                <div style="height: 70%;">
+                    <c-selected-jobs >
+
+                    </c-selected-jobs>
+                </div> 
+            </div>
+              
         </div>
     </div>
 </template>

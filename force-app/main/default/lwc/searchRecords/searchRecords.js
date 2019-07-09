@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 import { LightningElement, track, wire } from 'lwc';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { CurrentPageReference } from 'lightning/navigation';
-import { fireEvent } from 'c/pubsub';
+import { fireEvent, registerListener, unregisterAllListeners } from 'c/pubsub';
 import JOB_ADVERTISEMENT from '@salesforce/schema/Job_Advertisement__c';
 import SALARY_FIELD from '@salesforce/schema/Job_Advertisement__c.Salary__c';
 
@@ -20,7 +22,6 @@ export default class SearchRecords extends LightningElement {
             label: 'after'
         }
     ];
-    //@track mapTest = new Map();
 
     @wire(CurrentPageReference) pageRef;
 
@@ -30,6 +31,17 @@ export default class SearchRecords extends LightningElement {
     @wire (getPicklistValues, {recordTypeId: '$objectInfo.data.defaultRecordTypeId', fieldApiName: SALARY_FIELD})
     SalaryPicklistValues;
     
+    connectedCallback() {
+        registerListener("selectJobItem", this.handleSelectingJob, this);
+    }
+     
+    disconnectedCallback() {
+        unregisterAllListeners(this);
+    }
+
+    handleSelectingJob(selectedJobItems){
+        console.log('array of jobs:   ' + selectedJobItems);
+    }
 
     handleNameChange(event){
         this.name = event.target.value;
@@ -50,7 +62,7 @@ export default class SearchRecords extends LightningElement {
     resetFilters(event){
         this.name = '';
         this.salary = undefined;
-        this.operator = {value: undefined, label: undefined};
+        this.operator = undefined;
         this.date = '';
         this.fireingFilterEvents(this.name, '', '', '');
     }
@@ -60,8 +72,7 @@ export default class SearchRecords extends LightningElement {
         filter.set('salary', salary);
         filter.set('operator', operator);
         filter.set('date', date);
-        console.log(this.date);
-        console.log(this.operator);
         fireEvent(this.pageRef, 'changeFilter', filter);
     }
+
 }

@@ -1,6 +1,6 @@
 import { LightningElement, track, wire} from 'lwc';
 import getJobs from '@salesforce/apex/JobController.getJobs';
-import { registerListener, unregisterAllListeners } from 'c/pubsub';
+import { registerListener, unregisterAllListeners, fireEvent } from 'c/pubsub';
 import { CurrentPageReference } from 'lightning/navigation';
 
 export default class JobAdvertisements extends LightningElement {
@@ -11,17 +11,17 @@ export default class JobAdvertisements extends LightningElement {
     @track salary = '';
     @track operator = '';
     @track date = '';
+    @track selectedjobsitems = [];
 
     @wire(getJobs, { name: '$name', salary: '$salary', operator: '$operator', publishDate: '$date' }) jobs;
 
     @wire(CurrentPageReference) pageRef;
 
-    connectedCallback() {console.log('connectedCallback');
+    connectedCallback() {
         registerListener('changeFilter', this.handleSearchKeyChange.bind(this), this);
     }
 
     disconnectedCallback() {
-        // unsubscribe from searchKeyChange event
         unregisterAllListeners(this);
     }
 
@@ -30,5 +30,10 @@ export default class JobAdvertisements extends LightningElement {
         this.salary = searchKey.get('salary') ? searchKey.get('salary') : "";
         this.operator = searchKey.get('operator') ? searchKey.get('operator'): "";
         this.date = searchKey.get('date') ? searchKey.get('date'): "";
+    }
+    selectJobHandler(event){
+        var jobItem = event.detail;
+        this.selectedjobsitems.push(jobItem);
+        fireEvent(this.pageRef, 'selectJobItem', this.selectedjobsitems);
     }
 }

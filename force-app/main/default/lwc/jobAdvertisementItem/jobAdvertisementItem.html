@@ -1,15 +1,13 @@
 <template>
-    <lightning-card title={job.Name} style="border: 2px;">
-        <lightning-button-icon  icon-name="utility:add" variant="border-filled" alternative-text="Reset" slot="actions" onclick={resetFilters}></lightning-button-icon>
+    <lightning-card title={job.Name} style="border: 2px;" data-job={job.Id}>
+            <p>Salary range: {job.Salary__c}</p>
             <div class="slds-grid slds-gutters">
                 <div class="slds-col slds-size_11-of-12">
-                    <p>Salary range: {job.Salary__c}</p>
                     <p>Location: {job.Location__c}</p>
                 </div>
-                <div class="slds-col slds-size_1-of-12" style="bottom: 10px; left: 10px;">
-                    <lightning-button-icon class="open-detail" icon-name="utility:chevrondown" size="small" alternative-text="Open Detail" onclick={resetFilters}></lightning-button-icon>
+                <div class="slds-col slds-size_1-of-12" style="float: right;" >
+                    <lightning-button-icon class="open-detail" icon-name="utility:chevrondown" size="small" alternative-text="Open Detail" onclick={openDetail} style="float: right; margin-right: 16px;"></lightning-button-icon>
                 </div>
-                
             </div>
             
         <div class="test-element" style="display: none; margin-top: 8px;">
@@ -22,8 +20,11 @@
                 <div class="slds-col slds-size_10-of-12">
                     <p>Manager email: {job.Email__c}</p>
                 </div>
-                <div class="slds-col slds-size_2-of-12">
-                    <lightning-button label="Select" style="float: right; margin-right: 10px;"></lightning-button>
+                <div if:false={selectFlag} class="slds-col slds-size_2-of-12">
+                    <lightning-button label='Select' onclick={selectItem} style="float: right; margin-right: 10px;"></lightning-button>
+                </div>
+                <div if:true={selectFlag} class="slds-col slds-size_2-of-12">
+                        <lightning-button label='Deselect' onclick={selectItem} style="float: right; margin-right: 10px;"></lightning-button>
                 </div>
             </div>
         </div>
